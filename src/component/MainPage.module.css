@@ -1,0 +1,104 @@
+.main-page-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 2rem;
+
+    @media screen and (max-width: 400px) {
+        flex-direction: column;
+    }
+}
+
+.product-image {
+    width: 40%;
+
+    @media screen and (max-width: 400px) {
+        width: calc(100% - 32px);
+        padding: 0 16px;
+    }
+}
+
+.product {
+    width: 45%;
+    @media screen and (max-width: 400px) {
+        width: calc(100% - 32px);
+        padding: 0 16px;
+    }
+}
+
+.product_title {
+    font-size: 18px;
+    font-weight: 600;
+    color:#222222;   
+}
+
+.product_price {
+    border-bottom: 1px solid #CCCCCC; 
+    border-top: 1px solid #CCCCCC;
+    padding: 4px 0;
+    font-size: 15px;
+    font-weight: 700;
+    color:#222222;
+    @media screen and (max-width: 400px) {
+        border-bottom: 1px solid transparent; 
+        border-top: 1px solid transparent;
+    }
+}
+.product_details {
+    font-size: 12px;
+    color:#888888
+}
+.product_size {
+    font-size: 11px;
+    color:#888888;
+    padding-top:0.5rem;
+    font-weight: 600;
+}
+.product_essential{
+    font-size: 11px;
+    font-weight: 600;
+    padding-top:0.5rem;
+    color: #C90000;
+}
+.product_in_row{
+    display:flex;
+}
+.product_size_button_selected {
+    margin-right: 10px;
+    background-color: transparent;
+    border: 1px solid #222222;
+    outline: 1px solid #222222;
+    font-size: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 0%;
+    color:#222222
+}
+.product_size_button_unselected {
+    margin-right: 10px;
+    background-color: transparent;
+    border: 1px solid #888888;
+    font-size: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 0%;
+    color:#888888
+}
+.product_confirm_button{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    background-color: transparent;
+    border: 2px solid #222222;
+    font-size: 12px;
+    font-weight: 600;
+    width: 135px;
+    height: 35px;
+    border-radius: 0%;
+    color:#222222
+    
+}
+
+.product_confirm_button:hover {
+    background-color: #222222;
+    color:  #888888;
+    transition: 0.2s
+}
