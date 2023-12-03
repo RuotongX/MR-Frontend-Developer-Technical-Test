@@ -11,7 +11,7 @@ const MainPage = (props) => {
     const { data } = await axios.get(
       `https://3sb655pz3a.execute-api.ap-southeast-2.amazonaws.com/live/product`
     );
-    props.setProduct(data);
+    props.setProduct(data);//Because of props passing the value, forcing the function to run again with the new values.
     console.log(data);
     setIsLoading(false);
   };
