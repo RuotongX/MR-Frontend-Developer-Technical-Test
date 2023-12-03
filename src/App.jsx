@@ -7,10 +7,11 @@ function App() {
   const [product, setProduct] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [cartList, setCartList] = useState([]);
+  const [cartBody,setCartBody] = useState(false);
 
-  const addItemToCart = (id, size) => {
+  const addItemToCart = (id, size,title,price) => {
     if (cartList.length === 0) {
-      setCartList([{ id: id, size: size, quantity: 1 }]);
+      setCartList([{ id: id, size: size,title:title,price:price, quantity: 1 }]);
       return;
     }
 
@@ -25,7 +26,7 @@ function App() {
       }
     }
 
-    setCartList([...newList, { id: id, size: size, quantity: 1 }]);
+    setCartList([...newList, { id: id, size: size,title:title,price:price, quantity: 1 }]);
   };
 
   return (
@@ -34,8 +35,14 @@ function App() {
         product={product}
         showCart={showCart}
         cartList={cartList}
+        cartBody={cartBody}
         onClick={() => {
-          setShowCart(!showCart);
+            setShowCart(!showCart);
+            if(cartList.length!==0){
+              setCartBody(!cartBody);
+            } else{
+              setCartBody(false);
+            }
         }}
       />
       <MainPage

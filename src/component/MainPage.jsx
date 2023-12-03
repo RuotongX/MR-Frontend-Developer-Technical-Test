@@ -5,22 +5,32 @@ import axios from "axios";
 const MainPage = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [productSize, setProductSize] = useState(0);
+ 
 
   const getData = async () => {
     const { data } = await axios.get(
       `https://3sb655pz3a.execute-api.ap-southeast-2.amazonaws.com/live/product`
     );
     props.setProduct(data);
+    console.log(data);
     setIsLoading(false);
   };
 
   useEffect(() => {
-    getData();
+    // getData();
+    axios.get(
+      `https://3sb655pz3a.execute-api.ap-southeast-2.amazonaws.com/live/product`
+    ).then((data) => {
+    props.setProduct(data?.data);
+    console.log(data);
+    setIsLoading(false);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return !isLoading ? (
     <div className={classes["main-page-container"]}>
+      
       <img
         src={props.product.imageURL}
         alt="product"
@@ -58,7 +68,10 @@ const MainPage = (props) => {
         <button
           className={classes["product_confirm_button"]}
           onClick={() => {
-            props.addItemToCart(props.product.id, productSize);
+            if(productSize!==0){
+              props.addItemToCart(props.product.id, productSize,props.product.title,props.product.price);
+            }
+            
           }}
         >
           ADD TO CART
